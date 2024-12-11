@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AllAboutJameika</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="icon"
+      href="https://static.vecteezy.com/system/resources/previews/035/199/244/non_2x/ai-generated-blue-flower-isolated-on-transparent-background-free-png.png"
+    />
+    <style>
+      body {
+        background-color: #005bd31f;
+      }
+      footer .nav-link {
+        font-weight: bold;
+        transition: color 0.3s ease, transform 0.2s ease;
+      }
+
+      *,
+      ::after,
+      ::before {
+        box-sizing: border-box;
+        color: #6997e4;
+      }
+
+      p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: #005bd396;
+      }
+
+      footer .nav-link:hover {
+        transform: scale(1.1); /* Slight zoom effect */
+        color: #007bff;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #005bd3;
+      }
+
+      .text-dark {
+        --bs-text-opacity: 1;
+        color: rgb(0 91 211) !important;
+      }
+
+      .align-items-center {
+        align-items: center !important;
+        background-color: #e0ebf9;
+      }
+
+      .text-body-emphasis {
+        --bs-text-opacity: 1;
+        color: #005bd3 !important;
+      }
+
+      .align-items-center {
+        align-items: center !important;
+      }
+
+      #portfolio {
+        border-radius: 10px; /* Adjust as needed for rounded corners */
+        box-shadow: 0 4px 6px rgba(0, 91, 211, 0.5); /* Custom dark blue shadow */
+      }
+
+      .portfolio-image {
+        border-radius: 10px;
+        max-width: 100%;
+      }
+
+      .card-cover {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+      }
+
+      .card-body {
+        position: absolute;
+        bottom: 0;
+        background-color: rgb(0 91 211 / 21%);
+        color: white;
+        padding: 15px;
+        width: 100%;
+      }
+
+      .my-5 {
+        margin-top: 3rem !important;
+        margin-bottom: 3rem !important;
+        background-color: #ffffff;
+      }
+
+      .card-body h5 {
+        font-size: 1.2rem;
+        color: #005bd3;
+      }
+      .card-body p {
+        font-size: 1rem;
+      }
+
+      .contact-form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        margin-bottom: 15px;
+        padding: 10px;
+        width: 100%;
+      }
+
+      .contact-form button {
+        background-color: #005bd3; /* Matching text color */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .contact-form button:hover {
+        background-color: #212529; /* Darker shade for hover effect */
+      }
+      .form-label {
+        margin-bottom: 0.5rem;
+        color: #005bd3;
+      }
+
+      .display-4 {
+        overflow: hidden; /* Ensures the content is not revealed until the animation */
+        border-right: 0.15em solid orange; /* The typwriter cursor */
+        white-space: nowrap; /* Keeps the content on a single line */
+        margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+        letter-spacing: 0.015em; /* Adjust as needed */
+        animation: typing 8s steps(40, end), blink-caret 0.75s step-end infinite;
+      }
+
+      /* The typing effect */
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      /* The typewriter cursor effect */
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: #005bd3;
+        }
+      }
+
+      /* Loading Screen Styles */
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          #005bd3 0%,
+          #007bff 100%
+        ); /* Updated gradient to match website blue */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        opacity: 1;
+        transition: opacity 1s ease-out; /* Fade-out transition */
+      }
+
+      /* Spinner and Text Styling */
+      .spinner {
+        text-align: center;
+      }
+
+      .spinner-border {
+        width: 3rem;
+        height: 3rem;
+        color: white;
+      }
+
+      .loading-screen h3 {
+        color: white;
+        font-weight: bold;
+        animation: pulse 2s infinite; /* Text pulse effect */
+      }
+
+      /* Pulse Animation for the Welcome Text */
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+      <div class="spinner">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <h3 class="mt-3">Welcome to AllAboutJameika</h3>
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="container" id="home">
+      <header
+        class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
+      >
+        <a
+          href="#"
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none"
+        >
+          <span class="fs-4 text-dark">@AllAboutJameika</span>
+        </a>
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a href="#home" class="nav-link text-dark">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#portfolio" class="nav-link text-dark">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a href="#projects" class="nav-link text-dark">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link text-dark">Contact Me</a>
+          </li>
+        </ul>
+      </header>
+    </div>
+
+    <!-- Portfolio Section -->
+    <div id="portfolio" class="container my-5">
+      <div class="row align-items-center rounded-3 shadow-lg">
+        <div class="col-lg-7 p-5">
+          <h1 class="display-4 fw-bold text-body-emphasis">
+            Jameika Scarlette
+          </h1>
+          <p>
+            I’m Jameika Scarlette, a 10th-grade high school student and aspiring
+            web developer passionate about creating user-friendly digital
+            experiences. Skilled in HTML and CSS, I enjoy turning ideas into
+            functional websites with clean, efficient code. I stay updated on
+            web development trends and love exploring new technologies to grow
+            my skills and prepare for a future in tech.
+          </p>
+          <ul>
+            <li>High school student in the 10th grade.</li>
+            <li>
+              Aspiring web developer with a passion for creating impactful
+              digital experiences.
+            </li>
+            <li>
+              Skilled in HTML and CSS, with experience in user-friendly, modern
+              designs.
+            </li>
+            <li>
+              Dedicated to writing clean, efficient code and turning ideas into
+              functional websites.
+            </li>
+            <li>
+              Always exploring new technologies and staying updated with web
+              development trends.
+            </li>
+            <li>
+              Enjoys collaborating with others to create innovative solutions.
+            </li>
+            <li>
+              Excited to build expertise and prepare for a future in the tech
+              industry.
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-5">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/035/199/244/non_2x/ai-generated-blue-flower-isolated-on-transparent-background-free-png.png"
+            alt="Jameika Scarlette"
+            class="portfolio-image w-100"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="container px-4 py-5" id="projects">
+      <h2 class="section-header">Projects</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+        <!-- Project Card 1 -->
+        <div class="col">
+          <div
+            class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+          >
+            <video class="w-100 h-100" autoplay muted loop>
+              <source
+                src="https://cdn.dribbble.com/userupload/13260555/file/original-f06109398a02217724c4be4ce20fb692.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+            <div class="card-body">
+              <h5 class="card-title">Project Title 1</h5>
+              <p class="card-text">
+                A web project focused on advanced technologies.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Project Card 2 -->
+        <div class="col">
+          <div
+            class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+          >
+            <video class="w-100 h-100" autoplay muted loop>
+              <source
+                src="https://cdn.dribbble.com/userupload/10672393/file/original-e315d0f9c9afd6f4122be00dd64755eb.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+            <div class="card-body">
+              <h5 class="card-title">Project Title 2</h5>
+              <p class="card-text">
+                This project showcases a dynamic website .
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Project Card 3 -->
+        <div class="col">
+          <div
+            class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+          >
+            <video class="w-100 h-100" autoplay muted loop>
+              <source
+                src="https://cdn.dribbble.com/userupload/14006738/file/original-845240d89e046c9c612c6e6fefce5b59.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+            <div class="card-body">
+              <h5 class="card-title">Project Title 3</h5>
+              <p class="card-text">A project focused on responsive design.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Me Section -->
+    <div class="container my-5" id="contact">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <h2 class="fw-bold text-body-emphasis">Contact Me</h2>
+          <p>
+            If you would like to connect with me, feel free to send a message or
+            ask any questions!
+          </p>
+          <p>Email: scarlettejameika@gmail.com</p>
+        </div>
+        <div class="col-lg-6 contact-form">
+          <form>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="name@example.com"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Your Message</label>
+              <textarea class="form-control" id="message" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-3 my-4">
+      <div class="container">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item">
+            <a href="#home" class="nav-link px-2 text-dark">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#portfolio" class="nav-link px-2 text-dark">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a href="#projects" class="nav-link px-2 text-dark">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link px-2 text-dark">Contact Me</a>
+          </li>
+        </ul>
+        <p class="text-center text-dark">© 2024 AllAboutJameika</p>
+      </div>
+    </footer>
+
+    <script>
+      // Set a timeout to fade out the loading screen after 4 seconds
+      setTimeout(() => {
+        const loadingScreen = document.getElementById("loading-screen");
+        loadingScreen.style.opacity = 0; // Trigger the fade-out effect
+        // Wait until the fade-out transition finishes before removing the loading screen
+        setTimeout(() => {
+          loadingScreen.style.display = "none"; // Completely hide the loading screen
+        }, 1000); // Wait 1 second (duration of fade-out)
+      }, 2000); // Show loading screen for 4 seconds
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Code injected by live-server -->
+    <script>
+      // <![CDATA[  <-- For SVG support
+      if ("WebSocket" in window) {
+        (function () {
+          function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+              var elem = sheets[i];
+              var parent = elem.parentElement || head;
+              parent.removeChild(elem);
+              var rel = elem.rel;
+              if (
+                (elem.href && typeof rel != "string") ||
+                rel.length == 0 ||
+                rel.toLowerCase() == "stylesheet"
+              ) {
+                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, "");
+                elem.href =
+                  url +
+                  (url.indexOf("?") >= 0 ? "&" : "?") +
+                  "_cacheOverride=" +
+                  new Date().valueOf();
+              }
+              parent.appendChild(elem);
+            }
+          }
+          var protocol =
+            window.location.protocol === "http:" ? "ws://" : "wss://";
+          var address =
+            protocol + window.location.host + window.location.pathname + "/ws";
+          var socket = new WebSocket(address);
+          socket.onmessage = function (msg) {
+            if (msg.data == "reload") window.location.reload();
+            else if (msg.data == "refreshcss") refreshCSS();
+          };
+          if (
+            sessionStorage &&
+            !sessionStorage.getItem("IsThisFirstTime_Log_From_LiveServer")
+          ) {
+            console.log("Live reload enabled.");
+            sessionStorage.setItem("IsThisFirstTime_Log_From_LiveServer", true);
+          }
+        })();
+      } else {
+        console.error(
+          "Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading."
+        );
+      }
+      // ]]>
+    </script>
+  </body>
+</html>
